@@ -18,11 +18,14 @@ const handleSubmit = function() {
 };
 
 const handleBreedSearch = function() {
-    //handle submit button
     $('.breed-dog-form').on('submit', event=> {
         event.preventDefault();
         $('.dog-pics').empty();
-        getBreeds($('#breed-type').val());
+        let searchTerm = $('#breed-type').val();
+        if (searchTerm.includes(' ')) {
+            searchTerm = searchTerm.trim().split(' ').reverse().join('/');
+        }
+        getBreeds(searchTerm);
     })
     
 }
