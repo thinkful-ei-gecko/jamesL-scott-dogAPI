@@ -20,8 +20,26 @@ const handleSubmit = function() {
     });
 };
 
+const handleBreedSearch = function() {
+    //handle submit button
+    
+}
+
+const getBreeds = function(breedType){
+    //handle api data
+}
+
+const appendBreeds = function(breedData){
+    //append breed img
+}
+
 const createTemplate = function(dogMessage){
     return `<img src=${dogMessage}>`;
 };
 
-$(handleSubmit)
+const main = function(){
+    handleSubmit()
+    handleBreedSearch()
+}
+
+$(main)
