@@ -43,12 +43,18 @@ const getBreeds = function(breedType){
         .then(jsonData => {
             appendBreeds(jsonData)
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            $('#js-error-message').text(`Something went wrong: ${error.message}`)
+        })
 };
 
 const appendBreeds = function(breedData){
     //append breed img
-    $('.dog-pics').append(createTemplate(breedData.message));
+    if (breedData.status === 'error') {
+        $('#js-error-message').text(`Something went wrong: ${breedData.message}`)
+    } else {
+        $('.dog-pics').append(createTemplate(breedData.message));
+    }
 };
 
 const createTemplate = function(dogMessage){
